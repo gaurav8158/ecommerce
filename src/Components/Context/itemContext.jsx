@@ -11,6 +11,7 @@ export const ItemProvider = ({ children }) => {
   const [rating, setRating] = useState("");
   const [cartItem, setCartItem] = useState(cartData);
   const [loggedUser, setLoggedUser] = useState(loggeduser);
+  const[sort,setSort]=useState("");
   console.log(category);
   useEffect(() => {
     getData(setItems);
@@ -34,6 +35,8 @@ export const ItemProvider = ({ children }) => {
         setLoggedUser,
         cartItem,
         handleAddcart,
+        sort,setSort
+       ,setCartItem 
       }}
     >
       {children}

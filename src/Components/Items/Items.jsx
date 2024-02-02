@@ -4,11 +4,20 @@ import itemContext from "../Context/itemContext";
 import Itemcard from "./Itemcard";
 
 const Items = () => {
-  const { items, setCategory, category, rating } = useContext(itemContext);
+  const { sort, items, setCategory, category, rating } =
+    useContext(itemContext);
   console.log(items);
   console.log(category);
+  // const sortFilter = (sort==="low") ?
+  if (sort === "low") {
+    items.sort((a, b) => a.price - b.price);
+  } else if (sort === "high") {
+    items.sort((a, b) => b.price - a.price);
+  }
   const ratingFilter =
-    rating === "" ? [...items] : items.filter((val) => val.rating.rate >= rating);
+    rating === ""
+      ? [...items]
+      : items.filter((val) => val.rating.rate >= rating);
   const filteredArr =
     category === ""
       ? [...ratingFilter]
@@ -27,7 +36,7 @@ const Items = () => {
             type="text"
           />
         </div>
-        <div className="flex mt-2 gap-2">
+        <div className="flex mt-2 gap-2 flex-wrap">
           <div
             onClick={() => setCategory("")}
             className="p-2 rounded-md bg-slate-100 hover:bg-slate-50 font-semibold"
@@ -60,7 +69,7 @@ const Items = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex  flex-wrap w-full justify-around">
         {filteredArr.length !== 0 &&
           filteredArr?.map((val) => (
             <Itemcard val={val} key={filteredArr.id} />

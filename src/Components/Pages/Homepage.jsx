@@ -7,7 +7,7 @@ const Homepage = () => {
   return (
     <div>
       <Header />
-      <div className="flex p-4">
+      <div className="flex flex-col sm:flex-row p-4 ">
         <Filter />
         <Items />
       </div>

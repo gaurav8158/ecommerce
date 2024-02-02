@@ -11,9 +11,9 @@ const Header = () => {
   };
   return (
     <div className="p-4 shadow flex justify-between">
-    <Link to="/">
-    <h1 className="font-bold">Meshop</h1>
-    </Link>  
+      <Link to="/">
+        <h1 className="font-bold text-2xl">Meshop</h1>
+      </Link>
       <div className="flex gap-2">
         <ul className="flex gap-2 items-center">
           {loggedUser ? (
